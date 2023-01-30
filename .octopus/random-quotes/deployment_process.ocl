@@ -12,7 +12,8 @@ step "approve-deployment" {
         notes = "Require approval from someone with the appropriate permissions."
         properties = {
             Octopus.Action.Manual.BlockConcurrentDeployments = "True"
-            Octopus.Action.Manual.Instructions = "Please enter notes below and either approve or cancel the deployment."
+            Octopus.Action.Manual.Instructions = "Please enter notes below and either approve or cancel the deployment. This is a change."
+            Octopus.Action.RunOnServer = "false"
         }
         worker_pool_variable = ""
     }
@@ -280,6 +281,7 @@ step "send-completion-notification" {
             Octopus.Action.Email.Body = "#{Octopus.Release.Notes}"
             Octopus.Action.Email.Subject = "Release #{Octopus.Release.Number} has been deployed to #{Octopus.Environment.Name} for #{Octopus.Deployment.Tenant.Name}"
             Octopus.Action.Email.To = "#{Octopus.Deployment.CreatedBy.EmailAddress}"
+            Octopus.Action.RunOnServer = "false"
         }
         worker_pool_variable = ""
     }
