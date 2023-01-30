@@ -12,7 +12,7 @@ step "approve-deployment" {
         notes = "Require approval from someone with the appropriate permissions."
         properties = {
             Octopus.Action.Manual.BlockConcurrentDeployments = "True"
-            Octopus.Action.Manual.Instructions = "Please enter notes below and either approve or cancel the deployment. This is a change."
+            Octopus.Action.Manual.Instructions = "Please enter notes below and either approve or cancel the deployment. This is a change. This is a change in \"mychange\" branch."
             Octopus.Action.RunOnServer = "false"
         }
         worker_pool_variable = ""
