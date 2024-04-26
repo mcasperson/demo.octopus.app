@@ -1,6 +1,6 @@
 step "approve-deployment" {
     condition = "Variable"
-    name = "Approve Deployment"
+    name = "Approve Deployment (edited)"
     properties = {
         Octopus.Step.ConditionVariableExpression = "#{unless Octopus.Deployment.Trigger.Id}True#{/unless}"
     }
@@ -15,7 +15,6 @@ step "approve-deployment" {
             Octopus.Action.Manual.Instructions = "Please enter notes below and either approve or cancel the deployment. This is a change. This is a change in \"mychange\" branch."
             Octopus.Action.RunOnServer = "false"
         }
-        worker_pool_variable = ""
     }
 }
 
@@ -283,6 +282,5 @@ step "send-completion-notification" {
             Octopus.Action.Email.To = "#{Octopus.Deployment.CreatedBy.EmailAddress}"
             Octopus.Action.RunOnServer = "false"
         }
-        worker_pool_variable = ""
     }
 }
