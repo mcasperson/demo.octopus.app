@@ -115,7 +115,7 @@ step "deploy-petclinic-helm-chart" {
 }
 
 step "deploy-a-helm-chart" {
-    name = "Helm Chart Step Template"
+    name = "Helm Chart Step Template "
     properties = {
         Octopus.Action.TargetRoles = "demo-k8s-cluster"
     }
