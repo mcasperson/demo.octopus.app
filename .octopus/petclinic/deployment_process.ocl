@@ -128,7 +128,7 @@ step "deploy-a-helm-chart" {
             Octopus.Action.Package.PackageId = "nginx-ingress"
             Octopus.Action.RunOnServer = "false"
             Octopus.Action.Template.Id = "ActionTemplates-3501"
-            Octopus.Action.Template.Version = "2"
+            Octopus.Action.Template.Version = "3"
         }
         worker_pool_variable = ""
 
