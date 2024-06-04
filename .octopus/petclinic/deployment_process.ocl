@@ -121,24 +121,13 @@ step "deploy-a-helm-chart" {
     }
 
     action {
-        action_type = "Octopus.HelmChartUpgrade"
+        is_disabled = true
         properties = {
-            Octopus.Action.Helm.ClientVersion = "V3"
-            Octopus.Action.Helm.ResetValues = "True"
-            Octopus.Action.Package.DownloadOnTentacle = "False"
-            Octopus.Action.Package.FeedId = "octopus-server-built-in"
-            Octopus.Action.Package.PackageId = "petclinic-chart"
+            Octopus.Action.RunOnServer = "false"
+            Octopus.Action.Template.Id = "ActionTemplates-3501"
+            Octopus.Action.Template.Version = "0"
         }
         worker_pool_variable = ""
-
-        packages {
-            acquisition_location = "Server"
-            feed = "octopus-server-built-in"
-            package_id = "petclinic-chart"
-            properties = {
-                SelectionMode = "immediate"
-            }
-        }
     }
 }
 
