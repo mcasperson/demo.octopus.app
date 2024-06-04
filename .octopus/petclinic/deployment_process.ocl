@@ -123,11 +123,24 @@ step "deploy-a-helm-chart" {
     action {
         is_disabled = true
         properties = {
+            Helm.Chart = "{\"PackageId\":\"nginx-ingress\",\"FeedId\":\"helm-charts\"}"
+            Octopus.Action.Package.FeedId = "helm-charts"
+            Octopus.Action.Package.PackageId = "nginx-ingress"
             Octopus.Action.RunOnServer = "false"
             Octopus.Action.Template.Id = "ActionTemplates-3501"
-            Octopus.Action.Template.Version = "1"
+            Octopus.Action.Template.Version = "2"
         }
         worker_pool_variable = ""
+
+        packages {
+            acquisition_location = "Server"
+            feed = "helm-charts"
+            package_id = "nginx-ingress"
+            properties = {
+                PackageParameterName = "Helm.Chart"
+                SelectionMode = "deferred"
+            }
+        }
     }
 }
 
