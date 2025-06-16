@@ -10,4 +10,29 @@ run_retention_policy {
     quantity_to_keep = 100
 }
 
-process {}
+process {
+    step "describe-services" {
+        name = "Describe Services"
+        properties = {
+            Octopus.Action.TargetRoles = "demo-k8s-cluster"
+        }
+
+        action {
+            action_type = "Octopus.KubernetesRunScript"
+            properties = {
+                Octopus.Action.KubernetesContainers.Namespace = "#{OctoPetShop.Cluster.Namespace}"
+                Octopus.Action.RunOnServer = "true"
+                Octopus.Action.Script.ScriptBody = "describe service"
+                Octopus.Action.Script.ScriptSource = "Inline"
+                Octopus.Action.Script.Syntax = "PowerShell"
+                OctopusUseBundledTooling = "False"
+            }
+            worker_pool_variable = ""
+
+            container {
+                feed = "docker-hub"
+                image = "octopusdeploy/worker-tools:6.4.0-windows.ltsc2022"
+            }
+        }
+    }
+}
