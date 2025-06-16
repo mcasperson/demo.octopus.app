@@ -31,7 +31,7 @@ process {
 
             container {
                 feed = "docker-hub"
-                image = "octopusdeploy/worker-tools:6.4.0-windows.ltsc2022"
+                image = "octopusdeploy/worker-tools:6.4.0-ubuntu.22.04"
             }
         }
     }
