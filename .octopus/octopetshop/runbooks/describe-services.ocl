@@ -22,7 +22,7 @@ process {
             properties = {
                 Octopus.Action.KubernetesContainers.Namespace = "#{OctoPetShop.Cluster.Namespace}"
                 Octopus.Action.RunOnServer = "true"
-                Octopus.Action.Script.ScriptBody = "describe service"
+                Octopus.Action.Script.ScriptBody = "describe service \"#{OctoPetShop.WebApp.ServiceName}\""
                 Octopus.Action.Script.ScriptSource = "Inline"
                 Octopus.Action.Script.Syntax = "PowerShell"
                 OctopusUseBundledTooling = "False"
