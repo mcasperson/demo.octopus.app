@@ -448,18 +448,3 @@ step "deploy-an-aws-cloudformation-template" {
         worker_pool_variable = ""
     }
 }
-
-step "run-a-script" {
-    name = "Run a Script"
-
-    action {
-        action_type = "Octopus.Script"
-        properties = {
-            Octopus.Action.Script.ScriptBody = "echo hi"
-            Octopus.Action.Script.ScriptSource = "Inline"
-            Octopus.Action.Script.Syntax = "PowerShell"
-            OctopusUseBundledTooling = "False"
-        }
-        worker_pool = "hosted-ubuntu"
-    }
-}
