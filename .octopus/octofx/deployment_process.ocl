@@ -12,7 +12,7 @@ step "approve-production-release" {
         notes = "Require approval from someone with the appropriate permissions!!! This is an update."
         properties = {
             Octopus.Action.Manual.BlockConcurrentDeployments = "True"
-            Octopus.Action.Manual.Instructions = "Please provide approval notes."
+            Octopus.Action.Manual.Instructions = "Please provide approval notes. 8ytv76rf"
             Octopus.Action.Manual.ResponsibleTeamIds = "global/demo-presenters"
             Octopus.Action.RunOnServer = "false"
         }
