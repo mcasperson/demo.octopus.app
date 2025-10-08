@@ -9,7 +9,7 @@ step "approve-production-deployment" {
         action_type = "Octopus.Manual"
         environments = ["production"]
         is_required = true
-        notes = "Require approval from someone with the appropriate permissions."
+        notes = "Require approval from someone with the appropriate permissions. Edited."
         properties = {
             Octopus.Action.Manual.BlockConcurrentDeployments = "True"
             Octopus.Action.Manual.Instructions = "Please add approval notes here."
